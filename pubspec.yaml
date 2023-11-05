@@ -40,8 +40,8 @@ dependencies:
   firebase_core: ^2.20.0
   cloud_firestore: ^4.12.1
   firebase_storage: ^11.4.0
+  device_info_plus: ^9.1.0
 
-  cached_network_image: ^3.3.0
 
 dev_dependencies:
   flutter_test:

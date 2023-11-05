@@ -1,11 +1,13 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:food_delivery_application/restaurant_model.dart';
+import 'package:food_delivery_application/restaurants/restaurant_model.dart';
+
+import '../restaurant_items/restaurant_items.dart';
 
 class RestaurantCard extends StatefulWidget {
   final Restaurant restaurant;
 
-  RestaurantCard({required this.restaurant});
+  const RestaurantCard({super.key, required this.restaurant});
 
   @override
   State<RestaurantCard> createState() => _RestaurantCardState();
@@ -41,15 +43,20 @@ class _RestaurantCardState extends State<RestaurantCard> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Container(
-                height: 140,
-                child: imgURL.isEmpty?Center(child: CircularProgressIndicator(),):Image.network(
-                  imgURL,
-                  width: double.maxFinite,
-                  height: 140,
+              Expanded(
+                child: Container(
+                  child: imgURL.isEmpty
+                      ? const Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      : Image.network(
+                          imgURL,
+                          width: double.maxFinite,
+                          height: 140,
+                        ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8.0,
                 child: Divider(),
               ),
@@ -57,7 +64,7 @@ class _RestaurantCardState extends State<RestaurantCard> {
                 padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                 child: Text(
                   widget.restaurant.name,
-                  style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -67,7 +74,10 @@ class _RestaurantCardState extends State<RestaurantCard> {
         ),
       ),
       onTap: () {
-        print(widget.restaurant.id);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => RestaurantItems(restaurantId: widget.restaurant.id)),
+        );
       },
     );
   }
