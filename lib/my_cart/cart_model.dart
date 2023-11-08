@@ -24,6 +24,14 @@ class CartItem{
 
   }
 
+  Map<String, dynamic> toMap() => {
+    "RestaurantName" : _restaurantName,
+    "ImgURL" : _itemImgURL,
+    "Title" : _productTitle,
+    "unitPrice" : _price,
+    "Quantity" : _quantity,
+  };
+
   double get price => _price;
 
   String get productTitle => _productTitle;

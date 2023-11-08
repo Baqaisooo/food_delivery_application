@@ -4,14 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery_application/my_cart/my_cart.dart';
 import 'package:food_delivery_application/restaurants/restaurantpage.dart';
 
-class MyOrdersPage extends StatelessWidget {
-  const MyOrdersPage({super.key});
+class MyOrderDetailsPage extends StatelessWidget {
+  final String orderNum;
+
+  const MyOrderDetailsPage({super.key, required this.orderNum});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Restaurants"),
+        title: const Text("Order Details"),
         actions: [
           PopupMenuButton(
             icon: Icon(Icons.more_vert),
@@ -34,7 +36,7 @@ class MyOrdersPage extends StatelessWidget {
         ],
       ),
 
-      body: Center(child: Text("MY ORDERS"),),
+      body: Center(child: Text("ORDER Details"),),
     );
   }
 }

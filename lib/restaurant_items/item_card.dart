@@ -120,7 +120,7 @@ class _ItemCardState extends State<ItemCard> {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: const Text('Added To Cart Successfully'),
-                            duration: const Duration(seconds: 3),
+                            duration: const Duration(seconds: 1),
                             action: SnackBarAction(
                               label: 'Close',
                               onPressed: () {
