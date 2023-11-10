@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_application/my_cart/cart_model.dart';
 import 'package:food_delivery_application/my_orders/myOrders.dart';
+import 'package:food_delivery_application/my_orders/order_model.dart';
 
 import '../my_orders/order_details.dart';
 
@@ -200,6 +201,8 @@ class _CheckoutFormState extends State<CheckoutForm> {
                             "customerStreet": streetFieldController.text,
                             "orderStatus": "Received"
                           };
+                          
+                          OrderModel orderModel = OrderModel.from(data: orderInfo, orderId: OrderDocRef.id);
 
                           // Use set with merge option to update the existing document or create a new one if it doesn't exist
                           await OrderDocRef.set(orderInfo).then((_) async {
@@ -227,7 +230,7 @@ class _CheckoutFormState extends State<CheckoutForm> {
 
                           Navigator.pushAndRemoveUntil(
                               context,
-                              MaterialPageRoute(builder: (context) => MyOrderDetailsPage(orderNum: OrderDocRef.id,)),
+                              MaterialPageRoute(builder: (context) => OrderDetailsPage(orderModel: orderModel,)),
                                   (route) => false);
                         }
                       },

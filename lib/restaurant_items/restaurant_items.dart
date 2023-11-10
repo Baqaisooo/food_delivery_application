@@ -50,7 +50,7 @@ class _RestaurantItemsState extends State<RestaurantItems> {
               PopupMenuItem(
                 child: const Text("My Order"),
                 onTap: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const MyOrdersPage())),
+                    MaterialPageRoute(builder: (context) => MyOrdersPage())),
               ),
 
               PopupMenuItem(

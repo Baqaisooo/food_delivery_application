@@ -110,7 +110,7 @@ class _MyCartPageState extends State<MyCartPage> {
               PopupMenuItem(
                 child: const Text("My Order"),
                 onTap: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const MyOrdersPage())),
+                    MaterialPageRoute(builder: (context) => MyOrdersPage())),
               ),
             ],
           ),
